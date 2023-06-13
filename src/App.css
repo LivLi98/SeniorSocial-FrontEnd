@@ -7,7 +7,7 @@
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background:#a2d8fa
+    
   }
 
 
@@ -82,4 +82,14 @@ text-align: center;
 
 .Feed{
 align-self: center;
+}
+
+.dark {
+  background: #333;
+  color: #fff;
+}
+
+.light {
+  background: #a2d8fa;
+  color: black;
 }

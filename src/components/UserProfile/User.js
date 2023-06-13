@@ -1,10 +1,23 @@
 
 import React from "react";
-import { useContext } from "react";
+import { useContext,useState, useEffect } from "react";
 import SocialContext from "../../SocialContext";
+
 const User = () => {
 
   const {darkMode, setDarkMode} = useContext(SocialContext)
+  const [theme, setTheme] = useState('light');
+  const toggleTheme = () => {
+    if (theme === 'light') {
+      setTheme('dark');
+    } else {
+      setTheme('light');
+    }
+  };
+  useEffect(() => {
+    document.body.className = theme;
+  }, [theme]);
+  
   const styles = {
 
     header: {
@@ -43,7 +56,11 @@ const User = () => {
         paddingLeft:"4%",
         width:"55%",
         marginTop:"6%",
-        marginLeft:"20%"
+
+        marginLeft:"7%"
+
+     
+
         
         
       },
@@ -118,7 +135,7 @@ const User = () => {
       flexDirection:"column",
       width: "28%",
       alignContent:"center",
-      marginLeft:"37%"
+      marginLeft:"10%"
 
        
     },
@@ -149,7 +166,7 @@ const User = () => {
 
 
   return (
-    <div className='userProfile'style={styles.userProfile}>
+    <div className={`App ${theme}`} style={styles.userProfile}>
       <h1>Profile</h1>
       <img src="" alt="" className="profileImg" />
       <span style={styles.emailAdd} className="profileName"> Bartholomew D. Lester</span>
@@ -165,8 +182,13 @@ const User = () => {
       <div style={styles.viewMode}>
        
         
+
+        <button onClick={toggleTheme} style={styles.lightButton}>Light</button>
+        <button onClick={toggleTheme} style={styles.darkButton}>Dark</button>
+
         <button onClick={()=> setDarkMode(false)}style={styles.lightButton}>Light</button>
         <button onClick={()=> setDarkMode(true)} style={styles.darkButton}>Dark</button>
+
         
       </div>
 
