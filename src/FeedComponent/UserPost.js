@@ -1,7 +1,12 @@
 import { borderRadius } from "@mui/system";
-import React from "react";
+import React, { useContext } from "react";
+import SocialContext from "../SocialContext";
 
-const UserPosts = ({firstName, text}) => {
+const UserPosts = ({ firstName, text }) => {
+    const { movetoLiked } = useContext(SocialContext)
+    const handleClick = (e) => {
+        movetoLiked(e)
+    }
     const styles = {
         user: {
             marginLeft: "15%",
@@ -79,7 +84,7 @@ const UserPosts = ({firstName, text}) => {
                     </p>
                 </div>
                 <div className="btns">
-                    <button style={styles.likes}>Like</button>
+                    <button style={styles.likes} onClick={handleClick}>Like</button>
                     <button style={styles.comment}>Comment</button>
                 </div>
             </div>

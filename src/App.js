@@ -19,7 +19,10 @@ function App() {
     const [posts, setPosts] = useState([]);
     const [likedPosts, setLikedPosts] = useState([]);
     const [myPosts, setMyPosts] = useState([]);
-
+    const moveToLiked = (post) => {
+        setPosts(posts.filter((p) => p.id !== post.id));
+        setLikedPosts([...likedPosts, post]);
+    };
     return (
         <div className="App">
             <SocialContext.Provider
@@ -33,7 +36,8 @@ function App() {
                     myPosts,
                     setMyPosts,
                     darkMode,
-                    setDarkMode
+                    setDarkMode,
+                    moveToLiked
                 }}>
                 {user ? <Main /> : <SignIn />}
             </SocialContext.Provider>

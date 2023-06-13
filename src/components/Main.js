@@ -10,7 +10,7 @@ import MyPosts from "./MyPosts/MyPosts";
 import LikedPosts from "./MyPosts/LikedPosts";
 
 const Main = () => {
-    const { user, setUser, posts, setPosts, likedPosts, setLikedPosts, myPosts, setMyPosts } =
+    const { user, setUser, posts, setPosts, likedPosts, setLikedPosts, myPosts, setMyPosts, } =
         useContext(SocialContext);
     useEffect(() => {
         setPosts([]);
@@ -19,13 +19,7 @@ const Main = () => {
             .then((fetchPosts) => setPosts([...posts, ...fetchPosts]));
         console.log([...posts]);
     }, []);
-    useEffect(() => {
-        setLikedPosts([]);
-        fetch("http://localhost:3000/posts/saved/1")
-            .then((res) => res.json())
-            .then((fetchPosts) => setLikedPosts([...likedPosts, ...fetchPosts]));
-        console.log([...likedPosts]);
-    }, []);
+    
     useEffect(() => {
         setMyPosts([]);
         fetch("http://localhost:3000/posts/1")

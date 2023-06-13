@@ -13,7 +13,7 @@ const SideBar = () => {
     const [collapsed, setCollapsed] = useState(false);
     const style = {
         height: "100%",
-        backgroundColor: "#001c57",
+        backgroundColor: "cyan",
         fontSize: "20px",
         fontWeight: "600",
         position: "fixed",
