@@ -6,19 +6,22 @@ import SocialContext from "../SocialContext";
 const FeedComponent = () => {
     const { user, setUser, posts, setPosts, savedPosts, setSavedPosts, myPosts, setMyPosts } =
         useContext(SocialContext);
+    const { darkMode } = useContext(SocialContext);
     const style = {
         display: 'flex',
         justifyContent: 'center',
-        flexDirection:'column'
+        flexDirection: 'column',
+        backgroundColor: darkMode ? "black" : "a2d8fe",
+        textColor: darkMode ? "white" : "black"
     }
 
 
     return (
-        <div className="Feed" style = {style}>
+        <div className="Feed" style={style}>
             <CreatePost />
             {
                 posts.map(post => (<UserPosts firstName={post.firstName} text={post.text} />))
-        }
+            }
         </div>
     )
 
