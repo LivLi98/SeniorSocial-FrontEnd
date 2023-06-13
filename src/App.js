@@ -12,9 +12,10 @@ import LogSign from "./components/LoginSignIn/LogSign";
 import { useContext, useState } from "react";
 import SocialContext from "./SocialContext";
 import User from "./components/UserProfile/User";
+import AuthRouter from "./components/LoginSignIn/AuthRouter";
 
 function App() {
-    const [user, setUser] = useState(true);
+    const [user, setUser] = useState({});
     const [darkMode, setDarkMode] = useState(false)
     const [posts, setPosts] = useState([]);
     const [likedPosts, setLikedPosts] = useState([]);
@@ -43,7 +44,7 @@ function App() {
                     setDarkMode,
                     moveToLiked
                 }}>
-                {user ? <Main /> : <SignIn />}
+                {user.id ? <Main /> : <AuthRouter />}
             </SocialContext.Provider>
         </div>
     );
