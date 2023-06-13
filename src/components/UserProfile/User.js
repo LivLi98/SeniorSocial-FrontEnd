@@ -125,7 +125,8 @@ const User = () => {
         },
     };
     return (
-        <div className="userProfile" style={styles.userProfile}>
+
+      <div className="userProfile" style={styles.userProfile}>
             <h1>Profile</h1>
             <img src="" alt="" className="profileImg" />
             <span className="profileName">{ user.firstName} {user.lastName }</span>
@@ -145,6 +146,7 @@ const User = () => {
 
             <button style={styles.signOutButton}>Sign Out</button>
 
-    
+    </div>
+  )
 
 export default User;
