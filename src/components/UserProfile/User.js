@@ -51,9 +51,9 @@ const User = () => {
             color: "black",
             backgroundColor: "white",
             borderRadius: "12px",
-            padding:'8%',
+            padding: '8%',
             marginLeft: ".5%",
-            width:'100px'
+            width: '100px'
         },
 
         darkButton: {
@@ -68,7 +68,7 @@ const User = () => {
             paddingLeft: "4%",
             marginLeft: "1%",
             marginTop: "4%",
-            width:'100px'
+            width: '100px'
         },
 
         contrastButton: {
@@ -83,7 +83,7 @@ const User = () => {
             paddingLeft: "4%",
             marginLeft: "1%",
             marginTop: "4%",
-            width:'100px'
+            width: '100px'
         },
 
         buttonPad: {
@@ -92,9 +92,9 @@ const User = () => {
 
         userProfile: {
             display: 'flex',
-            flexDirection:'column',
+            flexDirection: 'column',
             textAlign: "center",
-            justifyContent:'center',
+            justifyContent: 'center',
             marginTop: "9%",
         },
 
@@ -129,7 +129,7 @@ const User = () => {
       <div className="userProfile" style={styles.userProfile}>
             <h1>Profile</h1>
             <img src="" alt="" className="profileImg" />
-            <span className="profileName">{ user.firstName} {user.lastName }</span>
+            <span className="profileName">{user.firstName} {user.lastName}</span>
 
             <div>
                 <h2 style={styles.pTag}>Email:</h2>
@@ -146,7 +146,7 @@ const User = () => {
 
             <button style={styles.signOutButton}>Sign Out</button>
 
-    </div>
-  )
-
+            /</div>
+    )
+}
 export default User;
