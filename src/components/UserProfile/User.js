@@ -186,9 +186,7 @@ const User = () => {
         <button onClick={toggleTheme} style={styles.lightButton}>Light</button>
         <button onClick={toggleTheme} style={styles.darkButton}>Dark</button>
 
-        <button onClick={()=> setDarkMode(false)}style={styles.lightButton}>Light</button>
-        <button onClick={()=> setDarkMode(true)} style={styles.darkButton}>Dark</button>
-
+      
         
       </div>
 
