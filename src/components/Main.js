@@ -19,7 +19,6 @@ const Main = () => {
             .then((fetchPosts) => setPosts([...posts, ...fetchPosts]));
         console.log([...posts]);
     }, []);
-    
     useEffect(() => {
         setMyPosts([]);
         fetch("http://localhost:3000/posts/1")

@@ -19,7 +19,7 @@ const FeedComponent = () => {
         <div className="Feed" style={style}>
             <CreatePost />
             {
-                posts.map(post => (<UserPosts firstName={post.firstName} text={post.text} />))
+                posts.map(post => (<UserPosts firstName={post.firstName} text={post.text} handleClick={() => moveToLiked(post)} />))
             }
         </div>
     )

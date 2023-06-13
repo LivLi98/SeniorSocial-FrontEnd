@@ -20,7 +20,6 @@ function App() {
     const [likedPosts, setLikedPosts] = useState([]);
     const [myPosts, setMyPosts] = useState([]);
     const moveToLiked = (post) => {
-        setPosts(posts.filter((p) => p.id !== post.id));
         setLikedPosts([...likedPosts, post]);
     };
     return (
