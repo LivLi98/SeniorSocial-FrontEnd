@@ -12,7 +12,7 @@ const FeedComponent = () => {
         justifyContent: 'center',
         flexDirection: 'column',
         backgroundColor: darkMode ? "black" : "a2d8fe",
-        textColor: darkMode ? "white" : "black"
+        textColor: darkMode ? "white" : "black",
     }
 
     return (

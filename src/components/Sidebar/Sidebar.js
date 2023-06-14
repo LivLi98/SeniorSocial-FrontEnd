@@ -16,7 +16,9 @@ const SideBar = () => {
     const {theme} =  useContext(SocialContext)
     const style = {
         height: "100%",
+
         backgroundColor: theme === 'light' ? 'cyan' : 'black' ,
+
         fontSize: "20px",
         fontWeight: "600",
         position: "fixed",
