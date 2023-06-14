@@ -41,6 +41,7 @@ const Main = () => {
         <div>
             <Sidebar></Sidebar>
             <Routes>
+                <Route path="/" element={<FeedComponent />} />
                 <Route path="/posts" element={<FeedComponent />} />
                 <Route path="/likes" element={<LikedPosts />} />
                 <Route path="/myposts" element={<MyPosts />} />
