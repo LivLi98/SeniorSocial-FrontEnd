@@ -2,7 +2,7 @@ import { borderRadius } from "@mui/system";
 import React, { useContext } from "react";
 import SocialContext from "../SocialContext";
 
-const UserPosts = ({ firstName, text, handleClick }) => {
+const UserPosts = ({ firstName, text, handleClick, id }) => {
 
     const styles = {
         user: {
@@ -67,7 +67,7 @@ const UserPosts = ({ firstName, text, handleClick }) => {
                 <div className="imgpic">
                     <img
                         className="pFpic"
-                        src="https://realblackgrandmothers.com/wp-content/uploads/2017/09/Ms.-Dora-Bio-300x300.jpg"
+                        src={`https://unsplash.it/${id}00/${id}00`}
                         alt="pfp"
                     />
                 </div>

@@ -10,18 +10,29 @@ import MyPosts from "./MyPosts/MyPosts";
 import LikedPosts from "./MyPosts/LikedPosts";
 
 const Main = () => {
-    const { user, setUser, posts, setPosts, likedPosts, setLikedPosts, myPosts, setMyPosts, } =
+    const { user, setUser, posts, setPosts, likedPosts, setLikedPosts, myPosts, setMyPosts } =
         useContext(SocialContext);
     useEffect(() => {
         setPosts([]);
-        fetch("http://localhost:3000/posts")
+        fetch("http://localhost:3000/posts", {
+            method: "GET",
+            headers: {
+                "Authorization": user.token,
+            },
+        })
             .then((res) => res.json())
             .then((fetchPosts) => setPosts([...posts, ...fetchPosts]));
         console.log([...posts]);
     }, []);
     useEffect(() => {
         setMyPosts([]);
-        fetch("http://localhost:3000/posts/1")
+        fetch(`http://localhost:3000/posts/${user.id}`,
+        {
+            method: "GET",
+            headers: {
+                "Authorization": user.token,
+            },
+        })
             .then((res) => res.json())
             .then((fetchPosts) => setMyPosts([...myPosts, ...fetchPosts]));
         console.log([...myPosts]);

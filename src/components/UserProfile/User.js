@@ -3,8 +3,7 @@ import { useContext, useState, useEffect } from "react";
 import SocialContext from "../../SocialContext";
 
 const User = () => {
-    const { darkMode, setDarkMode, user, setUser } = useContext(SocialContext);
-    const [theme, setTheme] = useState("light");
+    const { theme, setTheme, user, setUser } = useContext(SocialContext);
     const toggleTheme = () => {
         if (theme === "light") {
             setTheme("dark");
@@ -12,9 +11,6 @@ const User = () => {
             setTheme("light");
         }
     };
-    useEffect(() => {
-        document.body.className = theme;
-    }, [theme]);
 
     const styles = {
         header: {
@@ -48,7 +44,7 @@ const User = () => {
             paddingBottom: "2%",
             paddingRight: "4%",
             paddingLeft: "4%",
-            width: "55%",
+            width: "100%",
             marginTop: "6%",
 
             marginLeft: "7%",
@@ -69,7 +65,7 @@ const User = () => {
             paddingRight: "4%",
             paddingLeft: "4%",
             marginLeft: "-60%",
-            width: "200%",
+            width: "400%",
         },
 
         buttonPad: {
@@ -88,7 +84,7 @@ const User = () => {
             paddingLeft: "",
             marginLeft: "-60%",
             marginTop: "4%",
-            width: "200%",
+            width: "400%",
         },
 
         buttonPad: {
@@ -102,7 +98,7 @@ const User = () => {
         userProfile: {
             display: "flex",
             flexDirection: "column",
-            marginTop: "-70%",
+            marginTop: "20%",
             marginLeft: "19%",
         },
 
@@ -135,33 +131,27 @@ const User = () => {
     };
 
     return (
-        <div className={`App ${theme}`} style={styles.userProfile}>
+        <div style={styles.userProfile}>
             <h1>Profile</h1>
-            <img src="" alt="" className="profileImg" />
+            <img src="https://unsplash.it/150/150" alt="" className="profileImg" />
+            <br />
             <span style={styles.emailAdd} className="profileName">
                 {" "}
-                Bartholomew D. Lester
+                {user.firstName} {user.lastName}
             </span>
 
             <div>
                 <h2 style={styles.pTag}>Email:</h2>
-                <p style={styles.emailAdd}>blester@gmail.com</p>
+                <p style={styles.emailAdd}>{user.email}</p>
             </div>
             <div>
                 <h2 style={styles.pTag}>View Mode:</h2>
             </div>
             <div style={styles.viewMode}>
-                <button onClick={toggleTheme} style={styles.lightButton}>
+                    <button onClick={toggleTheme} style={styles.lightButton}>
                     Light
                 </button>
                 <button onClick={toggleTheme} style={styles.darkButton}>
-                    Dark
-                </button>
-
-                <button onClick={() => setDarkMode(false)} style={styles.lightButton}>
-                    Light
-                </button>
-                <button onClick={() => setDarkMode(true)} style={styles.darkButton}>
                     Dark
                 </button>
             </div>
