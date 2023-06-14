@@ -1,8 +1,10 @@
 import { NineMp } from "@mui/icons-material";
 import { border, display, padding } from "@mui/system";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import SocialContext from "../SocialContext";
 
 const CreatePost = () => {
+    const {user, setUser, posts, setPosts } = useContext(SocialContext);
     const styles = {
         postBox: {
             background: "#e4e7eb",
@@ -85,40 +87,37 @@ const CreatePost = () => {
             padding: "2% 3% 2% 3%",
         },
     };
-    const [newComment, setNewComment] = useState("");
-    const [comments, setComments] = useState([]);
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-
-        if (newComment.trim() !== "") {
-            const comment = {
-                id: comments.length + 1,
-                author: "User",
-                content: newComment,
-                timestamp: new Date().toLocaleString(),
-            };
-
-            setComments([...comments, comment]);
-            setNewComment("");
-        }
-    };
-
+    const [newPostText, setNewPostText] = useState("");
     const handleChange = (e) => {
-        setNewComment(e.target.value);
+        setNewPostText(e.target.value);
     };
-
+    const handlePostClick = async (e) => {
+        e.preventDefault();
+        await fetch("http://localhost:3000/posts", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                firstName: "user01",
+                text: newPostText,
+                userId: 3,
+            }),
+        });
+        const response = await fetch("http://localhost:3000/posts");
+        const fetchPosts = await response.json();
+        setPosts([...fetchPosts]);
+    };
     return (
         <div>
             <div className="postBox" style={styles.postBox}>
                 <div className="postInput" style={styles.postInput}>
-                    <form onSubmit={handleSubmit}>
+                    <form>
                         <div className="text-area" style={styles.textArea}>
                             <span className="placeholder" style={styles.placeholder}>
                                 Make a Post
                             </span>
                             <textarea
-                                value={newComment}
                                 onChange={handleChange}
                                 style={styles.inputEdit}
                                 placeholder="Type Here"></textarea>
@@ -126,7 +125,9 @@ const CreatePost = () => {
                         <div className="b-half">
                             <div className="content">
                                 <button style={styles.button}>ADD IMAGE</button>
-                                <button style={styles.button2}>POST</button>
+                                <button style={styles.button2} onClick={handlePostClick}>
+                                    POST
+                                </button>
                             </div>
                         </div>
                     </form>
