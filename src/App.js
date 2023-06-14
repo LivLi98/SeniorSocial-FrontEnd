@@ -44,7 +44,7 @@ function App() {
                     setDarkMode,
                     moveToLiked
                 }}>
-                {user.id ? <Main /> : <AuthRouter />}
+                {user ? <Main /> : <AuthRouter />}
             </SocialContext.Provider>
         </div>
     );

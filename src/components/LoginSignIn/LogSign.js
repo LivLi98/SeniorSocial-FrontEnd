@@ -70,9 +70,12 @@ const LogSign = ({handleLogClick, setEmailValue , setPasswordValue}) => {
                     Create New Account
                 </button>
                 </Link>
+                <Link to='/posts'>
+                    
                 <button className="EnterButton" style={styles.SubmitButton} onClick = {handleLogClick}>
                     Submit
                 </button>
+                </Link>
             </div>
         </div>
     );

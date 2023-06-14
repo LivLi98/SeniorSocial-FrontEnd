@@ -79,9 +79,12 @@ const SignIn = ({handleSignClick, setEmailValue,setFirstNameValue,setLastNameVal
                         Already Have Account
                     </button>
                 </Link>
+                <Link to='/posts'>
+                    
                 <button className="SubmitButton" style={styles.SubmitButton} onClick={handleSignClick}>
                     Submit
                 </button>
+                </Link>
             </div>
         </div>
     );
