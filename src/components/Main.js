@@ -14,7 +14,7 @@ const Main = () => {
         useContext(SocialContext);
     useEffect(() => {
         setPosts([]);
-        fetch("http://localhost:3000/posts", {
+        fetch("https://senior-social-back.onrender.com/posts", {
             method: "GET",
             headers: {
                 "Authorization": user.token,
@@ -26,7 +26,7 @@ const Main = () => {
     }, []);
     useEffect(() => {
         setMyPosts([]);
-        fetch(`http://localhost:3000/posts/${user.id}`,
+        fetch(`https://senior-social-back.onrender.com/posts/${user.id}`,
         {
             method: "GET",
             headers: {
