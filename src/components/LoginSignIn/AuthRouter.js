@@ -8,7 +8,7 @@ const AuthRouter = () => {
     const [lastNameValue, setLastNameValue] = useState("");
     const [emailValue, setEmailValue] = useState("");
     const [passwordValue, setPasswordValue] = useState("");
- const {user, setUser} = useContext(SocialContext)
+    const { user, setUser } = useContext(SocialContext);
     const handleLogClick = () => {
         console.log('click');
         fetch('http://localhost:3000/users/login', {
@@ -18,29 +18,32 @@ const AuthRouter = () => {
             },
             body: JSON.stringify({
                 email: emailValue,
-                password : passwordValue 
+                password: passwordValue
             })
-        }).then(res=> res.json()).then(data => setUser(data))
+        }).then(res => res.json()).then(data => setUser(data))
     };
+    
     const handleSignClick = () => {
-        fetch('http://localhost:3000/users/signup', {
-            method: 'POST',
+        fetch("http://localhost:3000/users/signup", {
+            method: "POST",
             headers: {
-                'Content-Type': 'application/json'
+                "Content-Type": "application/json",
             },
             body: JSON.stringify({
                 firstName: firstNameValue,
                 lastName: lastNameValue,
                 email: emailValue,
-                password : passwordValue 
-            })
-        }).then(res=> res.json()).then(data => setUser(data))
+                password: passwordValue,
+            }),
+        })
+            .then((res) => res.json())
+            .then((data) => setUser(data));
     };
     return (
         <div>
             <Routes>
                 <Route
-                    path="/login"
+                    path="/*"
                     element={
                         <LogSign
                             handleLogClick={handleLogClick}
