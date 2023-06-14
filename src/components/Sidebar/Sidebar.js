@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { Sidebar, Menu, MenuItem, SubMenu } from "react-pro-sidebar";
 import FeedIcon from "@mui/icons-material/Feed";
@@ -9,11 +9,16 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import logo from "./Logo with Tag (1).jpg";
 import UserPosts from "../../FeedComponent/UserPost";
 import HouseIcon from '@mui/icons-material/House';
+import SocialContext from "../../SocialContext";
 const SideBar = () => {
     const [collapsed, setCollapsed] = useState(false);
+
+    const {theme} =  useContext(SocialContext)
     const style = {
         height: "100%",
-        backgroundColor: "001c57",
+
+        backgroundColor: theme === 'light' ? 'cyan' : 'black' ,
+
         fontSize: "20px",
         fontWeight: "600",
         position: "fixed",

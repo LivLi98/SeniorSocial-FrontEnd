@@ -16,7 +16,7 @@ import AuthRouter from "./components/LoginSignIn/AuthRouter";
 
 function App() {
     const [user, setUser] = useState({});
-    const [darkMode, setDarkMode] = useState(false)
+    const [theme, setTheme] = useState('light')
     const [posts, setPosts] = useState([]);
     const [likedPosts, setLikedPosts] = useState([]);
     const [myPosts, setMyPosts] = useState([]);
@@ -29,7 +29,7 @@ function App() {
     };
 
     return (
-        <div className="App">
+        <div className={`App ${theme}`} >
             <SocialContext.Provider
                 value={{
                     user,
@@ -40,11 +40,11 @@ function App() {
                     setLikedPosts,
                     myPosts,
                     setMyPosts,
-                    darkMode,
-                    setDarkMode,
+                    theme,
+                    setTheme,
                     moveToLiked
                 }}>
-                {user ? <Main /> : <AuthRouter />}
+                {user.id ? <Main /> : <AuthRouter />}
             </SocialContext.Provider>
         </div>
     );

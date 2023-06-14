@@ -4,7 +4,7 @@ import { useContext, useState } from "react";
 import SocialContext from "../SocialContext";
 
 const CreatePost = () => {
-    const {user, setUser, posts, setPosts } = useContext(SocialContext);
+    const {user, setUser, posts, setPosts , myPosts, setMyPosts} = useContext(SocialContext);
     const styles = {
         postBox: {
             background: "#e4e7eb",
@@ -99,14 +99,17 @@ const CreatePost = () => {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                firstName: "user01",
+                firstName: user.firstName,
                 text: newPostText,
-                userId: 3,
+                userId: user.id,
             }),
         });
         const response = await fetch("http://localhost:3000/posts");
         const fetchPosts = await response.json();
         setPosts([...fetchPosts]);
+        const myResponse = await fetch(`http://localhost:3000/posts/${user.id}`);
+        const fetchMyPosts = await myResponse.json();
+        setMyPosts([...fetchMyPosts]);
     };
     return (
         <div>
