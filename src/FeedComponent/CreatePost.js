@@ -93,10 +93,11 @@ const CreatePost = () => {
     };
     const handlePostClick = async (e) => {
         e.preventDefault();
-        await fetch("http://localhost:3000/posts", {
+        await fetch("https://senior-social-back.onrender.com/posts", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
+                
             },
             body: JSON.stringify({
                 firstName: user.firstName,
@@ -104,10 +105,20 @@ const CreatePost = () => {
                 userId: user.id,
             }),
         });
-        const response = await fetch("http://localhost:3000/posts");
+        const response = await fetch("https://senior-social-back.onrender.com/posts", {
+            method: "GET",
+            headers: {
+                "Authorization": user.token,
+            },
+        });
         const fetchPosts = await response.json();
         setPosts([...fetchPosts]);
-        const myResponse = await fetch(`http://localhost:3000/posts/${user.id}`);
+        const myResponse = await fetch(`https://senior-social-back.onrender.com/${user.id}`, {
+            method: "GET",
+            headers: {
+                "Authorization": user.token,
+            },
+        });
         const fetchMyPosts = await myResponse.json();
         setMyPosts([...fetchMyPosts]);
     };

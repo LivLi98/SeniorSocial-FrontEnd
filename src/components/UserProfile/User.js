@@ -161,22 +161,5 @@ const User = () => {
     );
 };
 
-<<<<<<< HEAD
-        <button onClick={toggleTheme} style={styles.lightButton}>Light</button>
-        <button onClick={toggleTheme} style={styles.darkButton}>Dark</button>
-
-      
-        
-      </div>
-
-      <button style={styles.signOutButton} >Sign Out</button>
-
-    </div>
-  )
-}
-
 export default User
- 
-=======
-export default User;
->>>>>>> refs/remotes/origin/main
+

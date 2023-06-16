@@ -11,7 +11,7 @@ const AuthRouter = () => {
     const { user, setUser } = useContext(SocialContext);
     const handleLogClick = () => {
         console.log('click');
-        fetch('http://localhost:3000/users/login', {
+        fetch('https://senior-social-back.onrender.com/users/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -24,7 +24,7 @@ const AuthRouter = () => {
     };
     
     const handleSignClick = () => {
-        fetch("http://localhost:3000/users/signup", {
+        fetch("https://senior-social-back.onrender.com/users/signup", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
